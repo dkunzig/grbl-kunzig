@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:\\Users\\Don\\.espressif\\tools\\xtensa-esp32-elf\\esp-2019r2-8.2.0\\xtensa-esp32-elf\\bin\\xtensa-esp32-elf-gdb.exe",
+            "stopAtEntry":true,
+            "program": "C:\\websockets\\build\\websocket_server.elf",
+
+            "setupCommands": [
+                {"text": "target remote :3333"},
+                {"text": "set remote hardware-watchpoint-limit 2"},
+                {"text": "monitor reset halt"},
+                {"text": "flushregs"},
+                {"text": "thb app_main"},
+                
+            ],
+
+            "launchCompleteCommand": "exec-run",
+            "externalConsole": false,
+            "cwd": "${cwd}",
+
+            
+        }
+    ]
+}
